@@ -119,9 +119,7 @@ def process():
         sig_bytes = sig_file.read()
 
         # Neuer Seed pro Anfrage → jedes Mal andere Varianz
-        random.seed(random.randint(0, 1_000_000))
-
-        variant_img = generate_signature_variant(sig_bytes)
+        
         variant_png = variant_to_png_bytes(variant_img)
 
         final_pdf = insert_signature_pdf(
