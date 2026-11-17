@@ -10,7 +10,7 @@ from PIL import Image
 import config
 
 
-def render_pdf_page_to_png(pdf_bytes: bytes, page_index: int, dpi: int = 150) -> bytes:
+def render_pdf_page_to_png(pdf_bytes: bytes, page_index: int, dpi: int = 300) -> bytes:
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     page = doc.load_page(page_index)
     zoom = dpi / 72
