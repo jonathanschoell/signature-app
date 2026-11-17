@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import io
+import time
 import random
 
 import config
@@ -87,9 +88,9 @@ def _apply_alpha(mask: np.ndarray, color=(15, 15, 40)) -> Image.Image:
 
 
 def generate_signature_variant(image_bytes: bytes) -> Image.Image:
+    random.seed(time.time_ns())  # <--- HIER MUSS ES HIN
     gray = _load_gray(image_bytes)
     ink = _extract_ink(gray)
-    ink = _crop_to_content(ink)
 
     # Rotation – gewünschter Bereich aus config (z. B. ±8°)
     angle = random.uniform(config.ROTATION_MIN_GRAD, config.ROTATION_MAX_GRAD)
