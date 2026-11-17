@@ -7,7 +7,7 @@ Hier anpassen, wenn sich das Formular ändert.
 
 # ---- Formular ----
 # Der absolute Pfad stellt sicher, dass Vercel die PDF im Hauptordner findet.
-FORMULAR_PFAD = "/var/task/static/formular.pdf"
+FORMULAR_PFAD = "static/formular.pdf"
 FORMULAR_SEITE = 0                 # 0 = erste Seite
 
 # ---- Unterschriftenkästchen (Bounding Box in PDF-Punkten) ----
