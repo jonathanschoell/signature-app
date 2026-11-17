@@ -116,12 +116,13 @@ def process():
         if not sig_file:
             return jsonify({"error": "Bitte Unterschrift hochladen."}), 400
 
-        sig_bytes = sig_file.read()
+               sig_bytes = sig_file.read()
 
-        # Neuer Seed pro Anfrage → jedes Mal andere Varianz
+        # Generiert die Unterschrift (nutzt den neuen time-Seed aus der signature_engine.py)
+        variant_img = generate_signature_variant(sig_bytes)
         
+        # Wandelt das Bild in PNG-Bytes um
         variant_png = variant_to_png_bytes(variant_img)
-
         final_pdf = insert_signature_pdf(
             FORMULAR_BYTES, config.FORMULAR_SEITE, variant_png,
         )
