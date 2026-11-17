@@ -1,14 +1,17 @@
+import os
+
 """
 Zentrale Konfiguration: Kästchen-Koordinaten, Varianz-Parameter.
 Hier anpassen, wenn sich das Formular ändert.
 """
 
 # ---- Formular ----
-FORMULAR_PFAD = "static/formular.pdf"
+# Der absolute Pfad stellt sicher, dass Vercel die PDF im Hauptordner findet.
+FORMULAR_PFAD = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static", "formular.pdf")
 FORMULAR_SEITE = 0                 # 0 = erste Seite
 
 # ---- Unterschriftenkästchen (Bounding Box in PDF-Punkten) ----
-# Einmalig an dein Formular anpassen (siehe README unten).
+# WICHTIG: Diese vier Werte musst du an dein Formular anpassen!
 KAESTCHEN_X0 = 352                 # linke Kante
 KAESTCHEN_Y0 = 266                 # obere Kante
 KAESTCHEN_X1 = 535                 # rechte Kante
